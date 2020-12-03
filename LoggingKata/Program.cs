@@ -41,7 +41,7 @@ namespace LoggingKata
             ITrackable firstTB = null;
             ITrackable lastTB = null; 
             // Create a `double` variable to store the distance
-            double distance = 0;
+            double distBetween = 0;
             var geoA = new GeoCoordinate();
             var geoB = new GeoCoordinate();
             // Include the Geolocation toolbox, so you can compare locations: `using GeoCoordinatePortable;`
@@ -90,20 +90,24 @@ namespace LoggingKata
             var ans = distBetween * 0.00062137;
             ans = Math.Round(ans, 2);
 
-            
+            logger.LogInfo("Converting to miles");
 
-            
+            Thread.Sleep(1000);
+            Console.Write(".");
+            Thread.Sleep(1000);
+            Console.Write(".");
 
             // Now, do another loop on the locations with the scope of your first loop, so you can grab the "destination" location (perhaps: `locB`)
 
             // Create a new Coordinate with your locB's lat and long
 
             // Now, compare the two using `.GetDistanceTo()`, which returns a double
+
             // If the distance is greater than the currently saved distance, update the distance and the two `ITrackable` variables you set above
 
             // Once you've looped through everything, you've found the two Taco Bells farthest away from each other.
 
-
+            Console.WriteLine($"{firstTB.Name} and {lastTB.Name} are the two farthest away Taco Bells with a distance of {ans} miles.");
 
         }
     }
